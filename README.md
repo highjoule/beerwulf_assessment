@@ -2,6 +2,8 @@
 
 ## Dear Breno and Burak
 
+You will find my answers in BEERWULF_TASK-Test.md.
+
 This is the code that will answer the question on the assignment. There is a particular flaw that I could not solve and I would like to tell you how to overcome this if you are running this code:
 
 In a part in this code I load the table files, locally stored, in the SQL server. If at some point the code does not run, please load again the cell where LINEITEM is, and the ones under it. I hope this can let you see the results fully.
