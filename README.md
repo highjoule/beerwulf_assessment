@@ -42,7 +42,7 @@ def create_server_connection(host_name, user_name, user_password):
 
 
 ```python
-pw='julio'#please change the password to the users password
+pw='********'#please change the password to the users password
 connection = create_server_connection("localhost", "root", pw)
 ```
 
