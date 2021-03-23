@@ -90,7 +90,7 @@ Revenue = Extended price - discount - tax; since I assumed that the extended pri
 import pandas as pd
 ```
 
-### File is read, and I add revenue and an ID columns to this table. (Answer to question 2)
+### File is read, and I add revenue and an ID columns to this table.
 
 
 ```python
@@ -872,7 +872,7 @@ c_df
 
 
 
-## Add a bar chart to see the information (Answer to question 2)
+## Add a bar chart to see the information
 
 
 ```python
@@ -904,7 +904,7 @@ print(bars)
 ```
 
 
-![](https://github.com/highjoule/beerwulf_assessment/blob/main/class_customer.png)
+![](https://github.com/highjoule/pythonsql/blob/main/class_customer.png)
 
 
     [2438817.05, 4314693.49, -71644.95]
@@ -1089,7 +1089,7 @@ c_df_ver
 
 
 ```python
-use_query = 'USE BEERWULF'
+use_query = 'USE MYDB'
 execute_query(connection,create_database_query)
 ```
 
@@ -1284,7 +1284,7 @@ So please, if the reader is trying to execute this, I encourage to reload Lineit
 
 
 ```python
-use_db="USE BEERWULF"
+use_db="USE MYDB"
 execute_query(connection,use_db)
 ```
 
@@ -1419,7 +1419,7 @@ execute_query(connection,load_table)
     Query successful
     
 
-## Once all the data is loaded, I will try to retrieve all the neccesary data that migth allow me to answer the assignment's questions.
+## Once all the data is loaded, I will try to retrieve all the neccesary data that may allow me to retrieve important information.
 
 ### Connection to server and the database called MYDB
 
@@ -1476,7 +1476,7 @@ INNER JOIN ORDERS ON ORDERS.O_ORDERKEY = LINEITEM.L_ORDERKEY
 INNER JOIN CUSTOMER ON ORDERS.O_CUSTKEY = CUSTOMER.C_CUSTKEY
 ORDER BY LINEITEM.L_REVENUEITEM ASC;"""
 
-db = 'beerwulf'
+db = 'MYDB'
 
 def top_customer(q1,pw,db,concept):
 
@@ -1505,7 +1505,7 @@ def top_customer(q1,pw,db,concept):
     return dfaux[dfaux[concept]==dfaux[concept].max()]#returns the client with max revenue/quantity
 ```
 
-### Top customer in terms of revenue (Answer to 5.d)
+### Top customer in terms of revenue
 
 
 ```python
@@ -1541,7 +1541,7 @@ top_customer(q1,pw,db,concept)
 
 
 
-### Top customer in terms of quantity (Answer to 5.d)
+### Top customer in terms of quantity
 
 
 ```python
@@ -1641,7 +1641,7 @@ bottom_names=bottom_nations['nationname']
 top_names=top_nations['nationname']
 ```
 
-### Bottom nations (Answer to 5.a)
+### Bottom nations
 
 
 ```python
@@ -1683,7 +1683,7 @@ bottom_nations
 
 
 
-### Top Nations (Answer to 5.b)
+### Top Nations 
 
 
 ```python
@@ -1804,7 +1804,7 @@ FROM LINEITEM
 INNER JOIN ORDERS ON ORDERS.O_ORDERKEY = LINEITEM.L_ORDERKEY
 ORDER BY LINEITEM.L_REVENUEITEM ASC;"""
 
-db = 'beerwulf'
+db = 'MYDB'
 
 def months(pw,db,q3):
 
@@ -2049,7 +2049,7 @@ df_year_fiscal['revenue'].sum() - monthly_series['revenue'].sum()
 
 
 
-### Resume of fiscal year revenue (Answer to question 5.e)
+### Resume of fiscal year revenue 
 
 
 ```python
@@ -2124,12 +2124,12 @@ ax = df_year_fiscal.plot.bar(x='year')
 ```
 
 
-![](https://github.com/highjoule/beerwulf_assessment/blob/main/fiscal_year.png)
+![](https://github.com/highjoule/pythonsql/blob/main/fiscal_year.png)
 
 
 # Star schema
 
-The schema below, allows to answer the questions, regarding SQL data management. As seen above, I was able to answer the questions from section 5.
+The schema below, I show the fact table applying for this case regarding SQL data management.
 
 
 ```python
@@ -2141,7 +2141,7 @@ plt.show()
 ```
 
 
-![](https://github.com/highjoule/beerwulf_assessment/blob/main/star_schema.png)
+![](https://github.com/highjoule/pythonsql/blob/main/star_schema.png)
 
 
 
