@@ -2,7 +2,7 @@
 
 This code shows how to process information of large data sets using SQL and Python.
 
-In the outcome one will be able to see.
+In the outcome one will be able to see top and bottom countries in terms of sales, most common use of ship mode from top country, top client in terms of revenue, and a review in terms of revenue from fiscal years from 01 july to 30 of june.
 
 
 ```python
