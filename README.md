@@ -5,6 +5,22 @@ This code shows how to process information of large data sets using SQL and Pyth
 In the outcome one will be able to see top and bottom countries in terms of sales, most common use of ship mode from top country, top client in terms of revenue, and a review in terms of revenue from fiscal years from 01 july to 30 of june.
 
 
+# Star schema
+
+The schema below, I show the fact table applying for this case regarding SQL data management.
+
+
+```python
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+img = mpimg.imread('starschema.png')
+imgplot = plt.imshow(img)
+plt.show()
+```
+
+
+![](https://github.com/highjoule/pythonsql/blob/main/star_schema.png)
+
 ```python
 
 ```
@@ -2127,21 +2143,7 @@ ax = df_year_fiscal.plot.bar(x='year')
 ![](https://github.com/highjoule/pythonsql/blob/main/fiscal_year.png)
 
 
-# Star schema
 
-The schema below, I show the fact table applying for this case regarding SQL data management.
-
-
-```python
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-img = mpimg.imread('starschema.png')
-imgplot = plt.imshow(img)
-plt.show()
-```
-
-
-![](https://github.com/highjoule/pythonsql/blob/main/star_schema.png)
 
 
 
