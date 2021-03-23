@@ -1,16 +1,8 @@
-# Dear Breno and Burak
+# Python and mysql
 
-This is the code that will answer the question on the assignment. There is a particular flaw that I could not solve and I would like to tell you how to overcome this if you are running this code:
+This code shows how to process information of large data sets using SQL and Python.
 
-In a part in this code I load the table files, locally stored, in the SQL server. If at some point the code does not run, please load again the cell where LINEITEM is, and the ones under it. I hope this can let you see the results fully.
-
-I used mysql.connector and Pandas to analyze the information and matplotlib. On an other, I will upload the code in a .zip since all the tables and images are locally stored, you could extract everything locally and run it through Jupyter.
-
-Additionally, in order to access the Database server I have to put my SQL credentials, just change the password (under pw, some cells below) to yours and should be fine.
-
-Finally, I really enjoyed making this code. Hope to hear back from you and kind regards.
-
-Julio
+In the outcome one will be able to see.
 
 
 ```python
@@ -69,20 +61,20 @@ def execute_query(connection, query):
         print(f"Error: '{err}'")
 ```
 
-## Creation of database called Beerwulf
+## Creation of database called MYDB
 
 
 ```python
-create_database_query = 'CREATE DATABASE BEERWULF'
+create_database_query = 'CREATE DATABASE MYDB'
 execute_query(connection,create_database_query)
 ```
 
-    Error: '1007 (HY000): Can't create database 'beerwulf'; database exists'
+    Query succesful
     
 
 
 ```python
-create_database_query = 'USE BEERWULF'
+create_database_query = 'USE MYDB'
 execute_query(connection,create_database_query)
 ```
 
@@ -717,11 +709,7 @@ c_df=debt_class(c_df0)
 c_df
 ```
 
-    c:\users\julio\appdata\local\programs\python\python38\lib\site-packages\pandas\core\indexing.py:670: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame
-    
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      iloc._setitem_with_indexer(indexer, value)
+
     
 
 
@@ -1433,13 +1421,13 @@ execute_query(connection,load_table)
 
 ## Once all the data is loaded, I will try to retrieve all the neccesary data that migth allow me to answer the assignment's questions.
 
-### Connection to server and the database called Beerwulf
+### Connection to server and the database called MYDB
 
 
 ```python
 pw='julio'
 connection = create_server_connection("localhost", "root", pw)
-use_query = 'USE BEERWULF'
+use_query = 'USE MYDB'
 execute_query(connection,use_query)
 ```
 
@@ -1601,7 +1589,7 @@ INNER JOIN CUSTOMER ON ORDERS.O_CUSTKEY = CUSTOMER.C_CUSTKEY
 INNER JOIN NATION ON CUSTOMER.C_NATIONKEY = NATION.N_NATIONKEY
 ORDER BY LINEITEM.L_REVENUEITEM ASC;"""
 
-db = 'beerwulf'
+db = 'mydb'
 
 
 
@@ -1755,7 +1743,7 @@ def top_shipmode(df2,country):
     return df3
 ```
 
-### Top ship mode from top countries (Answer to 5.b)
+### Top ship mode from top countries
 
 
 ```python
@@ -1858,7 +1846,7 @@ monthly_series,top_months = months(pw,db,q3)
     MySQL Database connection successful
     
 
-### Top 10 months (Answer to 5.c)
+### Top 10 months
 
 
 ```python
@@ -2128,7 +2116,7 @@ df_year_fiscal
 
 
 
-### Graph of the information from the table above (Answer to question 5.e)
+### Graph of the information from the table above
 
 
 ```python
@@ -2139,7 +2127,7 @@ ax = df_year_fiscal.plot.bar(x='year')
 ![](https://github.com/highjoule/beerwulf_assessment/blob/main/fiscal_year.png)
 
 
-# Star schema (Answer to Question 2)
+# Star schema
 
 The schema below, allows to answer the questions, regarding SQL data management. As seen above, I was able to answer the questions from section 5.
 
@@ -2156,26 +2144,6 @@ plt.show()
 ![](https://github.com/highjoule/beerwulf_assessment/blob/main/star_schema.png)
 
 
-# Considering Microsoft Azure, how to run this process multiple times a day (Answer to question 3)
-
-As not a very experimented user in Azure, I would try to shedule events, in Python or in SQL to update the database by conceting the Azure or Microsoft SQL server using pyodbc.
-
-Some documentation I found here regarding this topic:
-
-https://github.com/mkleehammer/pyodbc/wiki
-
-
-As I read, this library supported ny Microsoft allows me to run SQL queries in this database.
-
-The randomness of the data, without the schedule of events I would propose the use of a database in pipelines to coordinate changes from the administrators. I found the next module, which is useful to create a bridge that can update new information.
-
-https://docs.microsoft.com/en-us/learn/modules/manage-database-changes-in-azure-pipelines/
-
-# Consideration on code deplyment and maintenance (Answer to question 4)
-
-Control on the code and avoidance (or reparation) of human mistakes should be essential in this phase. I would propose a local maintenance version of codes made from developers and creation of controlled versions that could be stored in environments such as Visual Studio in Microsoft or Google colab.
-
-Also, finding a platform where colleagues and developers can feel comfortable to work on should be essential, in an scenario where production should not be affected.
 
 
 ```python
